@@ -351,7 +351,6 @@ func (r *{{.Name}}Ring) Do(f func({{.Pointer}}{{.Name}})) {
 `},
 	"Set": &typewriter.Template{
 		Text: `
-
 // The primary type that represents a set
 type {{.Name}}Set map[{{.Pointer}}{{.Name}}]struct{}
 
