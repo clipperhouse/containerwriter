@@ -6,8 +6,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/clipperhouse/gen/typewriter"
-	_ "github.com/clipperhouse/gen/typewriters/container"
+	_ "github.com/clipperhouse/containerwriter"
+	"github.com/clipperhouse/typewriter"
 )
 
 func main() {

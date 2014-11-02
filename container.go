@@ -3,7 +3,7 @@ package container
 import (
 	"io"
 
-	"github.com/clipperhouse/gen/typewriter"
+	"github.com/clipperhouse/typewriter"
 )
 
 func init() {

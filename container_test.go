@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/clipperhouse/gen/typewriter"
+	"github.com/clipperhouse/typewriter"
 )
 
 func TestValidate(t *testing.T) {

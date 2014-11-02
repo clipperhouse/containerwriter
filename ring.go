@@ -1,6 +1,6 @@
 package container
 
-import "github.com/clipperhouse/gen/typewriter"
+import "github.com/clipperhouse/typewriter"
 
 var ring = &typewriter.Template{
 	Text: `
