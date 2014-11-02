@@ -8,6 +8,8 @@ import (
 )
 
 func TestValidate(t *testing.T) {
+	var err error
+
 	g := NewContainerWriter()
 
 	pkg := typewriter.NewPackage("dummy", "SomePackage")
@@ -19,7 +21,7 @@ func TestValidate(t *testing.T) {
 	}
 
 	var b bytes.Buffer
-	err := g.WriteHeader(&b, typ)
+	err = g.WriteHeader(&b, typ)
 
 	if b.Len() > 0 {
 		t.Errorf("no 'containers' tag should not write")
@@ -41,7 +43,7 @@ func TestValidate(t *testing.T) {
 	}
 
 	var b2 bytes.Buffer
-	err := g.WriteBody(&b2, typ2)
+	err = g.WriteBody(&b2, typ2)
 
 	if b2.Len() > 0 {
 		t.Errorf("empty 'containers' tag should not write")
@@ -65,7 +67,7 @@ func TestValidate(t *testing.T) {
 	}
 
 	var b3 bytes.Buffer
-	err := g.WriteBody(&b3, typ3)
+	err = g.WriteBody(&b3, typ3)
 
 	if b3.Len() == 0 {
 		t.Errorf("'containers' tag with List should write (and ignore others)")
