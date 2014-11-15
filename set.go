@@ -3,6 +3,7 @@ package container
 import "github.com/clipperhouse/typewriter"
 
 var set = &typewriter.Template{
+	Name: "Set",
 	Text: `
 // The primary type that represents a set
 type {{.Name}}Set map[{{.Pointer}}{{.Name}}]struct{}

@@ -3,6 +3,7 @@ package container
 import "github.com/clipperhouse/typewriter"
 
 var ring = &typewriter.Template{
+	Name: "Ring",
 	Text: `
 // A Ring is an element of a circular list, or ring.
 // Rings do not have a beginning or end; a pointer to any ring element

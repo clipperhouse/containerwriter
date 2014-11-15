@@ -4,8 +4,8 @@ import (
 	"github.com/clipperhouse/typewriter"
 )
 
-var templates = typewriter.TemplateSet{
-	"List": list,
-	"Ring": ring,
-	"Set":  set,
+var templates = typewriter.TemplateSlice{
+	list,
+	ring,
+	set,
 }

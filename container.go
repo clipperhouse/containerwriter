@@ -111,7 +111,7 @@ func (c *ContainerWriter) WriteBody(w io.Writer, t typewriter.Type) error {
 	}
 
 	for _, v := range tag.Values {
-		tmpl, err := templates.Get(v)
+		tmpl, err := templates.Get(t, v)
 		if err != nil {
 			return err
 		}

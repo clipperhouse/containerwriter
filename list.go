@@ -3,6 +3,7 @@ package container
 import "github.com/clipperhouse/typewriter"
 
 var list = &typewriter.Template{
+	Name: "List",
 	Text: `
 // {{.Name}}Element is an element of a linked list.
 type {{.Name}}Element struct {
