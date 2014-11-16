@@ -12,12 +12,9 @@ func TestValidate(t *testing.T) {
 
 	g := NewContainerWriter()
 
-	pkg := typewriter.NewPackage("dummy", "SomePackage")
-
 	typ := typewriter.Type{
-		Package: pkg,
-		Name:    "SomeType",
-		Tags:    typewriter.TagSlice{},
+		Name: "SomeType",
+		Tags: typewriter.TagSlice{},
 	}
 
 	var b bytes.Buffer
@@ -32,8 +29,7 @@ func TestValidate(t *testing.T) {
 	}
 
 	typ2 := typewriter.Type{
-		Package: pkg,
-		Name:    "SomeType2",
+		Name: "SomeType2",
 		Tags: typewriter.TagSlice{
 			typewriter.Tag{
 				Name:   "containers",
@@ -54,8 +50,7 @@ func TestValidate(t *testing.T) {
 	}
 
 	typ3 := typewriter.Type{
-		Package: pkg,
-		Name:    "SomeType3",
+		Name: "SomeType3",
 		Tags: typewriter.TagSlice{
 			typewriter.Tag{
 				Name: "containers",
