@@ -2,7 +2,7 @@
 // TypeWriter: container
 // Directive: +test on Thing
 
-// See http://clipperhouse.github.io/gen for documentation
+package main
 
 // List is a modification of http://golang.org/pkg/container/list/
 // Ring is a modification of http://golang.org/pkg/container/ring/
@@ -13,8 +13,6 @@
 // Set is a modification of https://github.com/deckarep/golang-set
 // The MIT License (MIT)
 // Copyright (c) 2013 Ralph Caraveo (deckarep@gmail.com)
-
-package main
 
 // The primary type that represents a set
 type ThingSet map[Thing]struct{}

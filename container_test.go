@@ -12,22 +12,6 @@ func TestValidate(t *testing.T) {
 
 	g := NewContainerWriter()
 
-	typ := typewriter.Type{
-		Name: "SomeType",
-		Tags: typewriter.TagSlice{},
-	}
-
-	var b bytes.Buffer
-	err = g.WriteHeader(&b, typ)
-
-	if b.Len() > 0 {
-		t.Errorf("no 'containers' tag should not write")
-	}
-
-	if err != nil {
-		t.Error(err)
-	}
-
 	typ2 := typewriter.Type{
 		Name: "SomeType2",
 		Tags: typewriter.TagSlice{
@@ -39,7 +23,7 @@ func TestValidate(t *testing.T) {
 	}
 
 	var b2 bytes.Buffer
-	err = g.WriteBody(&b2, typ2)
+	err = g.Write(&b2, typ2)
 
 	if b2.Len() > 0 {
 		t.Errorf("empty 'containers' tag should not write")
@@ -62,7 +46,7 @@ func TestValidate(t *testing.T) {
 	}
 
 	var b3 bytes.Buffer
-	err = g.WriteBody(&b3, typ3)
+	err = g.Write(&b3, typ3)
 
 	if b3.Len() == 0 {
 		t.Errorf("'containers' tag with List should write (and ignore others)")

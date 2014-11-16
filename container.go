@@ -23,7 +23,12 @@ func (c *ContainerWriter) Name() string {
 	return "container"
 }
 
-func (c *ContainerWriter) WriteHeader(w io.Writer, t typewriter.Type) error {
+func (c *ContainerWriter) Imports(t typewriter.Type) (result []typewriter.ImportSpec) {
+	// none
+	return result
+}
+
+func (c *ContainerWriter) Write(w io.Writer, t typewriter.Type) error {
 	tag, found, err := t.Tags.ByName("containers")
 
 	if !found {
@@ -34,11 +39,23 @@ func (c *ContainerWriter) WriteHeader(w io.Writer, t typewriter.Type) error {
 		return err
 	}
 
-	s := `// See http://clipperhouse.github.io/gen for documentation
+	writeLicenses(w, tag)
 
-`
-	w.Write([]byte(s))
+	for _, v := range tag.Values {
+		tmpl, err := templates.Get(t, v)
+		if err != nil {
+			return err
+		}
 
+		if err := tmpl.Execute(w, t); err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
+func writeLicenses(w io.Writer, tag typewriter.Tag) error {
 	var list, ring, set bool
 
 	for _, v := range tag.Values {
@@ -87,36 +104,6 @@ func (c *ContainerWriter) WriteHeader(w io.Writer, t typewriter.Type) error {
 `
 
 		if _, err := w.Write([]byte(license)); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (c *ContainerWriter) Imports(t typewriter.Type) (result []typewriter.ImportSpec) {
-	// none
-	return result
-}
-
-func (c *ContainerWriter) WriteBody(w io.Writer, t typewriter.Type) error {
-	tag, found, err := t.Tags.ByName("containers")
-
-	if !found {
-		return nil
-	}
-
-	if err != nil {
-		return err
-	}
-
-	for _, v := range tag.Values {
-		tmpl, err := templates.Get(t, v)
-		if err != nil {
-			return err
-		}
-
-		if err := tmpl.Execute(w, t); err != nil {
 			return err
 		}
 	}
