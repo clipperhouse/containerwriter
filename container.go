@@ -38,7 +38,7 @@ func (c *ContainerWriter) Write(w io.Writer, t typewriter.Type) error {
 	writeLicenses(w, tag)
 
 	for _, v := range tag.Values {
-		tmpl, err := templates.Get(t, v)
+		tmpl, err := templates.ByTagValue(t, v)
 		if err != nil {
 			return err
 		}
