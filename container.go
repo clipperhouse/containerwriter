@@ -29,14 +29,10 @@ func (c *ContainerWriter) Imports(t typewriter.Type) (result []typewriter.Import
 }
 
 func (c *ContainerWriter) Write(w io.Writer, t typewriter.Type) error {
-	tag, found, err := t.Tags.ByName("containers")
+	tag, found := t.FindTag("containers")
 
 	if !found {
 		return nil
-	}
-
-	if err != nil {
-		return err
 	}
 
 	writeLicenses(w, tag)
