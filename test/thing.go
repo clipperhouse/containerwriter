@@ -1,4 +1,4 @@
 package main
 
-// +test containers:"Set,List,Ring"
+// +test containers:"List,Ring"
 type Thing int

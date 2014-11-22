@@ -7,5 +7,4 @@ import (
 var templates = typewriter.TemplateSlice{
 	list,
 	ring,
-	set,
 }
