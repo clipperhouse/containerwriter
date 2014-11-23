@@ -29,7 +29,7 @@ func (c *ContainerWriter) Imports(t typewriter.Type) (result []typewriter.Import
 }
 
 func (c *ContainerWriter) Write(w io.Writer, t typewriter.Type) error {
-	tag, found := t.FindTag("containers")
+	tag, found := t.FindTag(c)
 
 	if !found {
 		return nil
